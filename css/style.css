@@ -1,0 +1,43 @@
+/* ====================================================
+            ******** Fonts *********
+==================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+
+/* ====================================================
+            ******** Fonts *********
+==================================================== */
+
+/* ====================================================
+            ******** Utilities *********
+==================================================== */
+:root{
+    --primary-color: #5D5FEF;
+    --secondary-color: #A3A3A3;
+}
+body{
+    background-color: #F6F6F6;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.news-bg-primary{
+    background-color: #5D5FEF;
+}
+.news-text-primary{
+    color: var(--primary-color);
+}
+.news-text-secondary{
+    color: var(--secondary-color);
+}
+.news-font-secondary{
+    font-family: 'Playfair Display', serif;
+}
+
+.news-active{
+    border-bottom: 2px solid var(--primary-color);
+}
+/* ====================================================
+            ******** Utilities *********
+==================================================== */
+
+/* font-family: 'Playfair Display', serif; */
