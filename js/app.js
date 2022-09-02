@@ -18,6 +18,9 @@ const displayCategories = (categories) => {
 }
 
 const loadNewsOfCategory = (categoryId, categoryName) => {
+    // --------start spinner-------
+    toggleSpinner(true);
+
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
 
     fetch(url)
@@ -27,13 +30,23 @@ const loadNewsOfCategory = (categoryId, categoryName) => {
 }
 
 const displayNewsByCategory = (newsList, categoryName) => {
-    console.log(newsList);
-    newsList.sort((a,b)=> b.total_view - a.total_view);
+    // -----Sorting data --------
+    newsList.sort((a, b) => b.total_view - a.total_view);
+
+    // ---------showing display news section---------
     document.getElementById('news-by-category').classList.remove('d-none');
+
+    // ----------display number of news items found----------
     document.getElementById('number-of-news').innerText = `${newsList.length ? `${newsList.length} items found for category ${categoryName}` : `No items found for category ${categoryName}!`}`;
+
+    // -------------display news viewing section---------
     const displayNewsContainer = document.getElementById('news-view-by-category');
     displayNewsContainer.classList.remove('d-none');
+
+    // --------------remove previous data before showing new result--------
     displayNewsContainer.textContent = ``;
+
+    // --------------display news-----------
     newsList.forEach(news => {
         const newsContainer = document.createElement('div');
         newsContainer.classList.add('col');
@@ -52,7 +65,7 @@ const displayNewsByCategory = (newsList, categoryName) => {
                             <img src="${news.author.img}" class="rounded-pill img-fluid" alt="" style="width:60px; height:60px">
                             <div class="ms-3">
                                 <p class="m-0">${news.author.name ? news.author.name : "No data found!"}</p>
-                                <p class="text-muted m-0">${news.author.published_date ? news.author.published_date: "No data found!"}</p>
+                                <p class="text-muted m-0">${news.author.published_date ? news.author.published_date : "No data found!"}</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
@@ -71,9 +84,20 @@ const displayNewsByCategory = (newsList, categoryName) => {
                 </div>
             </div>
         `;
-
         displayNewsContainer.appendChild(newsContainer);
     });
+
+    // ------stop spinner----------
+    toggleSpinner(false);
+}
+
+const toggleSpinner = (isSpinning) => {
+    if (isSpinning) {
+        document.getElementById('spinner').classList.remove('d-none');
+    }
+    else {
+        document.getElementById('spinner').classList.add('d-none');
+    }
 }
 
 loadCategories();
