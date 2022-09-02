@@ -28,6 +28,7 @@ const loadNewsOfCategory = (categoryId, categoryName) => {
 
 const displayNewsByCategory = (newsList, categoryName) => {
     console.log(newsList);
+    newsList.sort((a,b)=> b.total_view - a.total_view);
     document.getElementById('news-by-category').classList.remove('d-none');
     document.getElementById('number-of-news').innerText = `${newsList.length ? `${newsList.length} items found for category ${categoryName}` : `No items found for category ${categoryName}!`}`;
     const displayNewsContainer = document.getElementById('news-view-by-category');
@@ -64,7 +65,7 @@ const displayNewsByCategory = (newsList, categoryName) => {
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <button class="btn border-0 news-text-primary"><i
+                        <button onclick="" class="btn border-0 news-text-primary"><i
                                 class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
