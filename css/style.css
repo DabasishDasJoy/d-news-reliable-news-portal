@@ -39,7 +39,11 @@ body{
     border-bottom: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
-
+.news-image{
+    width: auto; 
+    height:350px;
+    
+}
 /* ====================================================
             ******** Utilities *********
 ==================================================== */
