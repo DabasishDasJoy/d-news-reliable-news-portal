@@ -37,7 +37,7 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
     document.getElementById('number-of-news').innerText = `${newsList.length ? `${newsList.length} items found for category ${categoryName}` : `No items found for category ${categoryName}!`}`;
 
     // -------------display news viewing section---------
-    displayAllNewsOfCategory(newsList, view);
+    displayAllNewsOfCategory(newsList);
 
     // ------stop spinner----------
     toggleSpinner(false);
@@ -47,7 +47,7 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
     select.addEventListener('change', function (event) {
         // -----Sorting data --------
         view = event.target.value;
-        if(view === 'd'){
+        if (view === 'd') {
             displayAllNewsOfCategory(newsList, event.target.value);
         }
         else if (view === 'l') {
@@ -55,7 +55,7 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
         }
         else {
             displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
-        }  
+        }
     })
 
 }
@@ -126,7 +126,7 @@ const displayNewsDetails = (details) => {
     newBody.innerHTML = `
         <div class="h-100 d-flex flex-column p-2">
             <div class="text-center">
-                <img src="${details.image_url}" class="card-img" alt="..." style="width: auto; height:90vh">
+                <img src="${details.image_url}" class="card-img" alt="..." style="width: auto; height:100vh object-fit-contain">
             </div>
 
             <div class="card-body d-flex flex-column justify-content-between py-4">
