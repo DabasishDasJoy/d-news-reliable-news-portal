@@ -103,7 +103,7 @@ const displayAllNewsOfCategory = (newsList) => {
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-3 d-flex justify-content-md-center justify-content-start align-items-center">
+                        <div class="col-lg-3 col-3 d-flex justify-content-md-center justify-content-start align-items-center">
                             <p class="m-0 text-secondary fw-bold"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : "No data found!"}</p>
                         </div>
 
@@ -116,7 +116,7 @@ const displayAllNewsOfCategory = (newsList) => {
                                 <i class="fa-regular fa-star"></i>
                             </div>
                         </div>
-                        <div class="col-2 d-none d-md-flex justify-content-center align-items-center">
+                        <div class="col-1 d-none d-md-flex justify-content-center align-items-center">
                             <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
                             class="fa-solid fa-arrow-right"></i></button>
                         </div>
@@ -140,9 +140,7 @@ const loadNewsDetails = (news_id) => {
 
 // --------------display news details in modal--------------
 const displayNewsDetails = (details) => {
-    console.log(details);
     // -----Show modal title---
-    // document.getElementById('newDetailsModalLabel').innerText = details.title;
     const newBody = document.getElementById('news-body');
     newBody.innerHTML = `
         <div class="h-100 d-flex flex-column p-2">
