@@ -14,10 +14,11 @@
     --primary-color: #5D5FEF;
     --secondary-color: #A3A3A3;
 }
-
-body {
-   
+html{
+    max-width: 1400px;
     margin: 0 auto;
+}
+body {
     background-color: #F6F6F6;
     font-family: 'Roboto', sans-serif;
 }
@@ -41,7 +42,7 @@ body {
 
 .news-image {
     width: auto;
-    height: 350px;
+    height: auto;
 }
 
 /* ====================================================
@@ -70,11 +71,17 @@ li a:is(:link, :active, :visited).news-active{
             ******** nav bar links *********
 ==================================================== */
 
-/* ===========category list====== */
+/* ====================================================
+            ******** Category Links *********
+==================================================== */
 #categories-lists a:hover {
     background-color: #EEEFFF;
     color: var(--primary-color);
 }
+/* ====================================================
+            ******** Category Links *********
+==================================================== */
+
 
 /* ====================================================
             ******** Footer *********
@@ -87,7 +94,9 @@ footer{
 ==================================================== */
 
 
-
+/* ====================================================
+            ******** Media Query *********
+==================================================== */
 @media only screen and (max-width:991px){
     li a:is(:link, :active, :visited).news-active:after{
         content: "";  

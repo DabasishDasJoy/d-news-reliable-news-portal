@@ -1,3 +1,4 @@
+// ------------Load Categories data ------
 const loadCategories = () => {
     fetch("https://openapi.programming-hero.com/api/news/categories")
         .then(response => response.json())
@@ -5,12 +6,14 @@ const loadCategories = () => {
         .catch(error => console.log(error))
 }
 
-
-
-
+// -------------Display the categories data on the top-----
 const displayCategories = (categories) => {
     const categoriesLists = document.getElementById('categories-lists');
-    loadHome(categories[0]);
+
+    // ----------after getting the categories show one category news as default first------
+    loadHome(categories[categories.length - 1]);
+
+    // --------------Show all the categories in list on top-------
     categories.forEach(category => {
         const list = document.createElement('li');
         list.innerHTML = `
@@ -20,22 +23,24 @@ const displayCategories = (categories) => {
     });
 }
 
-const loadHome = (category) =>{
+// ------default data display---
+const loadHome = (category) => {
     loadNewsOfCategory(category.category_id, "Home");
 }
 
+// -----------get target category's all news--------
 const loadNewsOfCategory = (categoryId, categoryName) => {
     // --------start spinner-------
     toggleSpinner(true);
 
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
-
     fetch(url)
         .then(response => response.json())
         .then(data => displayNewsByCategory(data.data, categoryName, 'd'))
         .catch(error => console.log(error))
 }
 
+// ----------------show target category's information in the top--------
 const displayNewsByCategory = (newsList, categoryName, view) => {
     // ---------showing display news section---------
     document.getElementById('news-by-category').classList.remove('d-none');
@@ -52,21 +57,25 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
     // ------------Sort by view--------
     const select = document.getElementById('sort-options');
     select.addEventListener('change', function (event) {
-        // -----Sorting data --------
+        // -----Sorting data and send on demand--------
+        const newNewsList = [...newsList];
+
         view = event.target.value;
         if (view === 'd') {
             displayAllNewsOfCategory(newsList, event.target.value);
         }
         else if (view === 'l') {
-            displayAllNewsOfCategory(newsList.sort((a, b) => a.total_view - b.total_view), event.target.value);
+            displayAllNewsOfCategory(newNewsList.sort((a, b) => a.total_view - b.total_view), event.target.value);
         }
         else {
-            displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
+            displayAllNewsOfCategory(newNewsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
         }
     })
 
 }
 
+
+// -----------show all the news of the category in the website-------------
 const displayAllNewsOfCategory = (newsList) => {
 
     const displayNewsContainer = document.getElementById('news-view-by-category');
@@ -80,7 +89,7 @@ const displayAllNewsOfCategory = (newsList) => {
         const newsContainer = document.createElement('div');
         newsContainer.classList.add('col');
         newsContainer.innerHTML = `
-            <div class="card h-100 flex-md-row p-2">
+            <div class="card h-100 flex-lg-row p-2" onclick="loadNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#newDetailsModal">
                 <img src="${news.thumbnail_url}" class="card-img news-image" alt="...">
                 <div class="card-body d-flex flex-column justify-content-between py-4">
                     <div>
@@ -117,6 +126,7 @@ const displayAllNewsOfCategory = (newsList) => {
     });
 }
 
+// ----------get the news details by id------------
 const loadNewsDetails = (news_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     fetch(url)
@@ -125,6 +135,8 @@ const loadNewsDetails = (news_id) => {
         .catch(error => console.log(error))
 }
 
+
+// --------------display news details in modal--------------
 const displayNewsDetails = (details) => {
     console.log(details);
     // -----Show modal title---
@@ -133,7 +145,7 @@ const displayNewsDetails = (details) => {
     newBody.innerHTML = `
         <div class="h-100 d-flex flex-column p-2">
             <div class="text-center">
-                <img src="${details.image_url}" class="card-img" alt="..." style="width: auto; height:100vh object-fit-contain">
+                <img src="${details.image_url}" class="card-img img-fluid" alt="..." style="width: auto; height:auto">
             </div>
 
             <div class="card-body d-flex flex-column justify-content-between py-4">
@@ -148,7 +160,7 @@ const displayNewsDetails = (details) => {
                         <img src="${details.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
                         <div class="ms-3">
                             <p class="m-0">${details.author.name ? details.author.name : "No data found!"}</p>
-                            <p class="text-muted m-0">${details.author.published_date ? details.author.published_date : "No data found!"}</p>
+                            <p class="text-muted m-0">${details.author.published_date ? details.author.published_date.split(" ")[0] : "No data found!"}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
@@ -168,6 +180,7 @@ const displayNewsDetails = (details) => {
     `;
 }
 
+// ---------------spinner toggler-----------
 const toggleSpinner = (isSpinning) => {
     if (isSpinning) {
         document.getElementById('spinner').classList.remove('d-none');

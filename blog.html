@@ -47,18 +47,19 @@
                 </div>
 
             </div>
-            
+
         </nav>
         <!-- ===============================================================
                         ******** Navbar End *********
         ================================================================ -->
     </header>
     <main class="container">
-        <article class="blog mt-3 ms-5">
+        <!-- =======article 1==== -->
+        <article class="blog mt-3">
             <h1 class="text-decoration-underline">Var, Let, and Const - What's the Difference?</h1>
             In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article,
             we will see the differences between the var, let, and const keywords.
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>var:</h3>
                 <ol>
                     <li>The scope of a var variable is functional scope.</li>
@@ -68,7 +69,7 @@
                     <li>hoisting done , with initializing as 'default' value</li>
                 </ol>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>let:</h3>
                 <ol>
                     <li>The scope of a let variable is block scope.</li>
@@ -79,7 +80,7 @@
                         variable before declaration/initialization</li>
                 </ol>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>const:</h3>
                 <ol>
                     <li>The scope of a const variable is block scope.</li>
@@ -93,17 +94,18 @@
             </div>
         </article>
 
-        <article class="blog mt-3 ms-5">
+        <!-- =======article 2==== -->
+        <article class="blog mt-3">
             <h1 class="text-decoration-underline">Regular Function, and Arrow Function - What's the Difference?</h1>
             <p>JavaScript's arrow functions might seem the same as regular functions on the surface, but they have some
                 very important differences:</p>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Syntax:</h3>
                 <p>The first and most obvious difference between arrow functions and regular functions is their syntax.
                     Not only do they look different, but arrow functions also provide an implicit return shorthand and
                     allow parenthesis around a single argument to be omitted.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Execution context:</h3>
                 <p>Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the
                     value of this depends on how the function was invoked (simple invocation, method invocation,
@@ -111,25 +113,25 @@
                     its own execution context. This results in an arrow function's this being resolved lexically (i.e.
                     the scope in which the arrow function was defined).</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Methods:</h3>
                 <p>Due to arrow functions not defining their own execution context, they're not well-suited for usage as
                     methods. However, thanks to the Class fields proposal, arrow functions can be used as methods inside
                     classes, if your environment supports it.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Constructors:</h3>
                 <p>Regular functions can be used as constructors, using the new keyword. Yet another consequence of the
                     lexical resolution of this inside arrow functions is that they cannot be used as constructors. Using
                     new with an arrow function results in a TypeError..</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Arguments:</h3>
                 <p>Another difference is the binding of the arguments object. Unlike regular functions, arrow functions
                     don't have their own arguments object. A modern alternative that circumvents this limitation is the
                     usage of rest parameters.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>Other differences:</h3>
                 <p>Finally, there are a couple of other differences that are not as important, but worth mentioning.
                     These include the lack of a prototype property in arrow functions, as well as the fact that the
@@ -137,34 +139,38 @@
                     functions cannot be used as generators.</p>
             </div>
         </article>
-        <article class="blog mt-3 ms-5">
+
+        <!-- =======article 3==== -->
+        <article class="blog mt-3">
             <h1 class="text-decoration-underline">map(), foreach(), filter(), find() - What's the Difference?</h1>
             <p>In JavaScript looping through an array can be in different ways:</p>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>foreach():</h3>
                 <p><code>.forEach()</code>, is used to execute the same code on every element in an array but does not
                     change the array and it returns undefined.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>map():</h3>
                 <p><code>.map()</code> executes the same code on every element in an array and returns a new array with
                     the updated elements.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>filter():</h3>
                 <p><code>.filter()</code> checks every element in an array to see if it meets a certain criteria and
                     returns a new array with the elements that return truthy for the criter.</p>
             </div>
-            <div class="ms-5">
+            <div class="ms-md-5 ms-3">
                 <h3>find():</h3>
                 <p><code>.find() </code>checks every element in an array to see if it meets a certain criteria and
                     returns the first element or match only.</p>
             </div>
         </article>
-        <article class="blog my-3 ms-5">
+
+        <!-- =======article 4==== -->
+        <article class="blog my-3">
             <h1 class="text-decoration-underline">Why use template string?</h1>
             <p>Template string has following features:</p>
-            <ol class="ms-5">
+            <ol class="ms-md-5">
                 <li>A multiline string: a string that can span multiple lines.</li>
                 <li>String formatting: the ability to substitute part of the string for the values of variables or
                     expressions. This feature is also called string interpolation.</li>
@@ -179,5 +185,8 @@
     <!-- ===========================custom js file============================ -->
     <script src="js/utilities.js"></script>
 </body>
+<footer class="bg-body d-flex align-items-center justify-content-center news-text-secondary py-4">
+    <p class="m-0">Copyright 2022 D.D News Portal</p>
+</footer>
 
 </html>
