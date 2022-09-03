@@ -11,11 +11,12 @@ const displayCategories = (categories) => {
     categories.forEach(category => {
         const list = document.createElement('li');
         list.innerHTML = `
-            <a class=" news-text-secondary text-decoration-none" href="#" onclick="loadNewsOfCategory('${category.category_id}', '${category.category_name}')">${category.category_name}</a>
+            <a class="news-text-secondary text-decoration-none" href="#" onclick="loadNewsOfCategory('${category.category_id}', '${category.category_name}')">${category.category_name}</a>
         `;
         categoriesLists.appendChild(list);
     });
 }
+
 
 const loadNewsOfCategory = (categoryId, categoryName) => {
     // --------start spinner-------

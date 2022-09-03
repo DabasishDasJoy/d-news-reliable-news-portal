@@ -57,18 +57,69 @@
         ================================================================ -->
     </header>
     <main class="container">
-        <!-- ===============================================================
-                        ******** Spinner *********
-        ================================================================ -->
-        <div id="spinner" class="d-none d-flex justify-content-center mt-5 align-items-center text-primary" style="height: 50vh;">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <article class="blog mt-3 ms-5">
+            <h1 class="text-decoration-underline">Var, Let, and Const - What's the Difference?</h1>
+            In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article, we will see the differences between the var, let, and const keywords.
+            <div class="ms-5">
+                <h3>var:</h3>
+                <ol>
+                    <li>The scope of a var variable is functional scope.</li>
+                    <li>It can be updated and re-declared into the scope.</li>
+                    <li>It can be declared without initialization.</li>
+                    <li>It can be accessed without initialization as its default value is “undefined”.</li>
+                    <li>hoisting done , with initializing as 'default' value</li>
+                </ol>
             </div>
-        </div>
-        <!-- ===============================================================
-                        ******** Spinner end *********
-        ================================================================ -->
+            <div class="ms-5">
+                <h3>let:</h3>
+                <ol>
+                    <li>The scope of a let variable is block scope.</li>
+                    <li>It can be updated but cannot be re-declared into the scope.</li>
+                    <li>It can be declared without initialization.</li>
+                    <li>It cannot be accessed without initialization otherwise it will give 'referenceError..</li>
+                    <li>Hoisting is done , but not initialized (this is the reason for error when we access the let variable before declaration/initialization</li>
+                </ol>
+            </div>
+            <div class="ms-5">
+                <h3>const:</h3>
+                <ol>
+                    <li>The scope of a const variable is block scope.</li>
+                    <li>It cannot be updated or re-declared into the scope.</li>
+                    <li>It cannot be declared without initialization.</li>
+                    <li>It cannot be accessed without initialization, as it cannot be declared without initialization.</li>
+                    <li>Hoisting is done, but not initialized (this is the reason for error when we access the const variable before declaration/initialization</li>
+                </ol>
+            </div>
+        </article>
 
+        <article class="blog mt-3 ms-5">
+            <h1 class="text-decoration-underline">Regular Function, and Arrow Function - What's the Difference?</h1>
+            <p>JavaScript's arrow functions might seem the same as regular functions on the surface, but they have some very important differences:</p>
+            <div class="ms-5">
+                <h3>Syntax:</h3>
+                <p>The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.</p>
+            </div>
+            <div class="ms-5">
+                <h3>Execution context:</h3>
+                <p>Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked (simple invocation, method invocation, indirect invocation or constructor invocation). On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically (i.e. the scope in which the arrow function was defined).</p>
+            </div>
+            <div class="ms-5">
+                <h3>Methods:</h3>
+                <p>Due to arrow functions not defining their own execution context, they're not well-suited for usage as methods. However, thanks to the Class fields proposal, arrow functions can be used as methods inside classes, if your environment supports it.</p>
+            </div>
+            <div class="ms-5">
+                <h3>Constructors:</h3>
+                <p>Regular functions can be used as constructors, using the new keyword. Yet another consequence of the lexical resolution of this inside arrow functions is that they cannot be used as constructors. Using new with an arrow function results in a TypeError..</p>
+            </div>
+            <div class="ms-5">
+                <h3>Arguments:</h3>
+                <p>Another difference is the binding of the arguments object. Unlike regular functions, arrow functions don't have their own arguments object. A modern alternative that circumvents this limitation is the usage of rest parameters.</p>
+            </div>
+            <div class="ms-5">
+                <h3>Other differences:</h3>
+                <p>Finally, there are a couple of other differences that are not as important, but worth mentioning. These include the lack of a prototype property in arrow functions, as well as the fact that the yield keyword may not be used in an arrow function's body. A consequence of the latter is that arrow functions cannot be used as generators.</p>
+            </div>
+        </article>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
