@@ -49,7 +49,7 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
     document.getElementById('number-of-news').innerText = `${newsList.length ? `${newsList.length} items found for category ${categoryName}` : `No items found for category ${categoryName}!`}`;
 
     // -------------display news viewing section---------
-    displayAllNewsOfCategory(newsList);
+    displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view));
 
     // ------stop spinner----------
     toggleSpinner(false);
@@ -58,17 +58,13 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
     const select = document.getElementById('sort-options');
     select.addEventListener('change', function (event) {
         // -----Sorting data and send on demand--------
-        const newNewsList = [...newsList];
 
         view = event.target.value;
         if (view === 'd') {
-            displayAllNewsOfCategory(newsList, event.target.value);
-        }
-        else if (view === 'l') {
-            displayAllNewsOfCategory(newNewsList.sort((a, b) => a.total_view - b.total_view), event.target.value);
+            displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
         }
         else {
-            displayAllNewsOfCategory(newNewsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
+            displayAllNewsOfCategory(newsList.sort((a, b) => a.total_view - b.total_view), event.target.value);
         }
     })
 
@@ -102,7 +98,7 @@ const displayAllNewsOfCategory = (newsList) => {
                         <div class="d-flex justify-content-center align-items-center">
                             <img src="${news.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
                             <div class="ms-3">
-                                <p class="m-0">${news.author.name ? news.author.name : "No data found!"}</p>
+                                <p class="m-0 fw-bold">${news.author.name ? news.author.name : "No data found!"}</p>
                                 <p class="text-muted m-0">${news.author.published_date ? news.author.published_date.split(" ")[0] : "No data found!"}</p>
                             </div>
                         </div>
@@ -159,7 +155,7 @@ const displayNewsDetails = (details) => {
                     <div class="d-flex justify-content-center align-items-center">
                         <img src="${details.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
                         <div class="ms-3">
-                            <p class="m-0">${details.author.name ? details.author.name : "No data found!"}</p>
+                            <p class="m-0 fw-bold">${details.author.name ? details.author.name : "No data found!"}</p>
                             <p class="text-muted m-0">${details.author.published_date ? details.author.published_date.split(" ")[0] : "No data found!"}</p>
                         </div>
                     </div>
