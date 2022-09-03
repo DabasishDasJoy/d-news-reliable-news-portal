@@ -78,7 +78,7 @@ const displayNewsByCategory = (newsList, categoryName) => {
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <button onclick="" class="btn border-0 news-text-primary"><i
+                        <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
                                 class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
@@ -89,6 +89,20 @@ const displayNewsByCategory = (newsList, categoryName) => {
 
     // ------stop spinner----------
     toggleSpinner(false);
+}
+
+const loadNewsDetails = (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data=>displayNewsDetails(data.data[0]))
+        .catch(error => console.log(error))
+}
+
+const displayNewsDetails = (details) => {
+    console.log(details);
+    // -----Show modal title---
+    document.getElementById('newDetailsModalLabel').innerText = details.title;
 }
 
 const toggleSpinner = (isSpinning) => {

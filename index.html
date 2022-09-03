@@ -86,11 +86,11 @@
             </div>
             <div class="mt-4 d-flex justify-content-between">
                 <div id="sort">
-                    <label for="sort-view">Sort By View</label>
+                    <label for="sort-view">Sort By View: </label>
                     <select name="sort-view" id="sort-view" class="border-0 news-text-secondary px-2 py-1">
-                        <option value="">Default</option>
-                        <option value="">Most Viewed</option>
-                        <option value="">Less Viewed</option>
+                        <option value="" class="sort-option">Default</option>
+                        <option value="" class="sort-option">Most Viewed</option>
+                        <option value="" class="sort-option">Less Viewed</option>
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -115,6 +115,30 @@
 
         <!-- ===============================================================
                         ******** end *********
+        ================================================================ -->
+
+        <!-- ===============================================================
+                        ******** Modal *********
+        ================================================================ -->
+        <div class="modal fade" id="newDetailsModal" tabindex="-1" aria-labelledby="newDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold" id="newDetailsModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="news-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===============================================================
+                        ******** Modal *********
         ================================================================ -->
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
