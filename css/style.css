@@ -10,11 +10,12 @@
 /* ====================================================
             ******** Utilities *********
 ==================================================== */
-:root{
+:root {
     --primary-color: #5D5FEF;
     --secondary-color: #A3A3A3;
 }
-body{
+
+body {
     max-width: 1400px;
     margin: 0 auto;
     background-color: #F6F6F6;
@@ -22,34 +23,55 @@ body{
 }
 
 
-.news-bg-primary{
+.news-bg-primary {
     background-color: #5D5FEF;
 }
-.news-text-primary{
+
+.news-text-primary {
     color: var(--primary-color);
 }
-.news-text-secondary{
+
+.news-text-secondary {
     color: var(--secondary-color);
 }
-.news-font-secondary{
+
+.news-font-secondary {
     font-family: 'Playfair Display', serif;
 }
 
-.news-image{
-    width: auto; 
-    height:350px;
+.news-image {
+    width: auto;
+    height: 350px;
 }
-
 
 /* ====================================================
             ******** Utilities *********
 ==================================================== */
 
 
+/* ====================================================
+            ******** nav bar links *********
+==================================================== */
 
-/* -----------------nav bar-------- */
+li a:is(:link, :active, :visited).news-active:after{
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 0px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid var(--primary-color);
+}
 li a:is(:link, :active, :visited).news-active{
-    border-bottom: 2px solid var(--primary-color);
     color: var(--primary-color);
     font-weight: 700;
+}
+
+/* ====================================================
+            ******** nav bar links *********
+==================================================== */
+
+/* ===========category list====== */
+#categories-lists a:hover {
+    background-color: #EEEFFF;
+    color: var(--primary-color);
 }
