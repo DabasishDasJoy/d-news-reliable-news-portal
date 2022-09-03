@@ -36,12 +36,12 @@ const loadNewsOfCategory = (categoryId, categoryName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     fetch(url)
         .then(response => response.json())
-        .then(data => displayNewsByCategory(data.data, categoryName, 'd'))
+        .then(data => displayNewsByCategory(data.data, categoryName))
         .catch(error => console.log(error))
 }
 
 // ----------------show target category's information in the top--------
-const displayNewsByCategory = (newsList, categoryName, view) => {
+const displayNewsByCategory = (newsList, categoryName) => {
     // ---------showing display news section---------
     document.getElementById('news-by-category').classList.remove('d-none');
 
@@ -61,10 +61,10 @@ const displayNewsByCategory = (newsList, categoryName, view) => {
 
         view = event.target.value;
         if (view === 'd') {
-            displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view), event.target.value);
+            displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view));
         }
         else {
-            displayAllNewsOfCategory(newsList.sort((a, b) => a.total_view - b.total_view), event.target.value);
+            displayAllNewsOfCategory(newsList.sort((a, b) => a.total_view - b.total_view));
         }
     })
 
