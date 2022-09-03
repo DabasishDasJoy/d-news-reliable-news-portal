@@ -4,7 +4,7 @@ const navLinks = document.querySelectorAll('nav a');
 const catagoryLinks = document.querySelectorAll('#categories-lists a');
 
 navLinks.forEach(link => {
-    if(link.href.includes(`${currentPage}`)){
+    if (link.href.includes(`${currentPage}`)) {
         link.classList.add('news-active');
     }
 });
