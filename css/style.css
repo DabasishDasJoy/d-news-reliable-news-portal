@@ -35,15 +35,21 @@ body{
     font-family: 'Playfair Display', serif;
 }
 
-.news-active{
-    border-bottom: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    font-weight: 700;
-}
 .news-image{
     width: auto; 
     height:350px;
 }
+
+
 /* ====================================================
             ******** Utilities *********
 ==================================================== */
+
+
+
+/* -----------------nav bar-------- */
+li a:is(:link, :active, :visited).news-active{
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+}
