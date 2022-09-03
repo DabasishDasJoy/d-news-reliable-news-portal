@@ -37,7 +37,10 @@
                 <div class="collapse navbar-collapse flex-grow-0" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link news-text-secondary" href="#">News</a>
+                            <a class="nav-link news-text-secondary" href="#">Home</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link news-text-secondary news-active" href="index.html">News</a>
                         </li>
                         <li class="nav-item ms-3">
                             <a class="nav-link news-text-secondary" href="#">Blog</a>
@@ -69,7 +72,7 @@
         <!-- ===============================================================
                         ******** Spinner *********
         ================================================================ -->
-        <div id="spinner" class="d-none d-flex justify-content-center mt-5 align-items-center" style="height: 50vh;">
+        <div id="spinner" class="d-none d-flex justify-content-center mt-5 align-items-center text-primary" style="height: 50vh;">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -87,10 +90,10 @@
             <div class="mt-4 d-flex justify-content-between">
                 <div id="sort">
                     <label for="sort-view">Sort By View: </label>
-                    <select name="sort-view" id="sort-view" class="border-0 news-text-secondary px-2 py-1">
-                        <option value="" class="sort-option">Default</option>
-                        <option value="" class="sort-option">Most Viewed</option>
-                        <option value="" class="sort-option">Less Viewed</option>
+                    <select name="sort-view" id="sort-options" class="border-0 news-text-secondary px-2 py-1">
+                        <option value="d" class="sort-option">Default</option>
+                        <option value="m" class="sort-option">Most Viewed</option>
+                        <option value="l" class="sort-option">Less Viewed</option>
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -121,18 +124,17 @@
                         ******** Modal *********
         ================================================================ -->
         <div class="modal fade" id="newDetailsModal" tabindex="-1" aria-labelledby="newDetailsModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header border-0">
-                        <h5 class="modal-title fw-bold" id="newDetailsModalLabel">Modal title</h5>
+                        <!-- <h5 class="modal-title fw-bold" id="newDetailsModalLabel">Modal title</h5> -->
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="news-body">
                         
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer py-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
