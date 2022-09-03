@@ -5,9 +5,12 @@ const loadCategories = () => {
         .catch(error => console.log(error))
 }
 
+
+
+
 const displayCategories = (categories) => {
     const categoriesLists = document.getElementById('categories-lists');
-
+    loadHome(categories[0]);
     categories.forEach(category => {
         const list = document.createElement('li');
         list.innerHTML = `
@@ -17,6 +20,9 @@ const displayCategories = (categories) => {
     });
 }
 
+const loadHome = (category) =>{
+    loadNewsOfCategory(category.category_id, "Home");
+}
 
 const loadNewsOfCategory = (categoryId, categoryName) => {
     // --------start spinner-------
@@ -83,12 +89,12 @@ const displayAllNewsOfCategory = (newsList) => {
                         <p class="card-text text-secondary mt-3">${news.details.split(" ").length > 50 ? `${news.details.substr(0, news.details.indexOf(" ", 300))}...` : `${news.details}`}
                         </p>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center mt-3">
                         <div class="d-flex justify-content-center align-items-center">
                             <img src="${news.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
                             <div class="ms-3">
                                 <p class="m-0">${news.author.name ? news.author.name : "No data found!"}</p>
-                                <p class="text-muted m-0">${news.author.published_date ? news.author.published_date : "No data found!"}</p>
+                                <p class="text-muted m-0">${news.author.published_date ? news.author.published_date.split(" ")[0] : "No data found!"}</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
@@ -101,7 +107,7 @@ const displayAllNewsOfCategory = (newsList) => {
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
+                        <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary d-md-block d-none" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
                                 class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>

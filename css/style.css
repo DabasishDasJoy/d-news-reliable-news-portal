@@ -16,7 +16,7 @@
 }
 
 body {
-    max-width: 1400px;
+   
     margin: 0 auto;
     background-color: #F6F6F6;
     font-family: 'Roboto', sans-serif;
@@ -54,11 +54,11 @@ body {
 ==================================================== */
 
 li a:is(:link, :active, :visited).news-active:after{
-    content: ""; /* This is necessary for the pseudo element to work. */ 
-    display: block; /* This will put the pseudo element on its own line. */
-    margin: 0 auto; /* This will center the border. */
-    width: 50%; /* Change this to whatever width you want. */
-    padding-top: 0px; /* This creates some space between the element and the border. */
+    content: "";  
+    display: block; 
+    margin: 0 auto; 
+    width: 50%; 
+    padding-top: 0px; 
     border-bottom: 3px solid var(--primary-color);
 }
 li a:is(:link, :active, :visited).news-active{
@@ -74,4 +74,27 @@ li a:is(:link, :active, :visited).news-active{
 #categories-lists a:hover {
     background-color: #EEEFFF;
     color: var(--primary-color);
+}
+
+/* ====================================================
+            ******** Footer *********
+==================================================== */
+footer{
+    height: 2.5rem;
+}
+/* ====================================================
+            ******** Footer *********
+==================================================== */
+
+
+
+@media only screen and (max-width:991px){
+    li a:is(:link, :active, :visited).news-active:after{
+        content: "";  
+        display: block; 
+        margin-left: 0; 
+        width: 10%; 
+        padding-top: 0px; 
+        border-bottom: 3px solid var(--primary-color);
+    }
 }
