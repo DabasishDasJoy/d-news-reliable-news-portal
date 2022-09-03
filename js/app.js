@@ -58,8 +58,7 @@ const displayNewsByCategory = (newsList, categoryName) => {
     const select = document.getElementById('sort-options');
     select.addEventListener('change', function (event) {
         // -----Sorting data and send on demand--------
-
-        view = event.target.value;
+        const view = event.target.value;
         if (view === 'd') {
             displayAllNewsOfCategory(newsList.sort((a, b) => b.total_view - a.total_view));
         }
@@ -67,7 +66,8 @@ const displayNewsByCategory = (newsList, categoryName) => {
             displayAllNewsOfCategory(newsList.sort((a, b) => a.total_view - b.total_view));
         }
     })
-
+    // ------Changing to default selection-----
+    select.value = 'd';
 }
 
 
