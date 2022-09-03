@@ -94,26 +94,32 @@ const displayAllNewsOfCategory = (newsList) => {
                         <p class="card-text text-secondary mt-3">${news.details.split(" ").length > 50 ? `${news.details.substr(0, news.details.indexOf(" ", 300))}...` : `${news.details}`}
                         </p>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div class="d-flex justify-content-center align-items-center">
+                    <div class="row row-cols-4 mt-3">
+                        <div class="col-lg-5 col-6 d-flex justify-content-start align-items-center">
                             <img src="${news.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
                             <div class="ms-3">
                                 <p class="m-0 fw-bold">${news.author.name ? news.author.name : "No data found!"}</p>
                                 <p class="text-muted m-0">${news.author.published_date ? news.author.published_date.split(" ")[0] : "No data found!"}</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
+
+                        <div class="col-lg-2 col-3 d-flex justify-content-md-center justify-content-start align-items-center">
                             <p class="m-0 text-secondary fw-bold"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : "No data found!"}</p>
                         </div>
-                        <div>
-                            <i class="fa-regular fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+
+                        <div class="col-3 d-flex justify-content-md-center align-items-center">
+                            <div>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
-                        <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary d-md-block d-none" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
-                                class="fa-solid fa-arrow-right"></i></button>
+                        <div class="col-2 d-none d-md-flex justify-content-center align-items-center">
+                            <button onclick="loadNewsDetails('${news._id}')" class="btn border-0 news-text-primary" data-bs-toggle="modal" data-bs-target="#newDetailsModal"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,26 +157,32 @@ const displayNewsDetails = (details) => {
                     <p class="card-text text-secondary mt-3"> ${details.details}}
                     </p>
                 </div>
-                <div class="d-flex justify-content-between align-items-center my-3">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="${details.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
-                        <div class="ms-3">
-                            <p class="m-0 fw-bold">${details.author.name ? details.author.name : "No data found!"}</p>
-                            <p class="text-muted m-0">${details.author.published_date ? details.author.published_date.split(" ")[0] : "No data found!"}</p>
+                
+                    <div class="row row-cols-3 mt-4">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                            <img src="${details.author.img}" class="rounded-circle img-fluid" alt="" style="width:60px; height:60px">
+                            <div class="ms-3">
+                                <p class="m-0 fw-bold">${details.author.name ? details.author.name : "No data found!"}</p>
+                                <p class="text-muted m-0">${details.author.published_date ? details.author.published_date.split(" ")[0] : "No data found!"}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <p class="m-0 text-secondary fw-bold"><i class="fa-regular fa-eye"></i> ${details.total_view ? details.total_view : "No data found!"}</p>
+                        </div>
+
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <div>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <p class="m-0 text-secondary fw-bold"><i class="fa-regular fa-eye"></i> ${details.total_view ? details.total_view : "No data found!"}</p>
-                    </div>
-                    <div>
-                        <i class="fa-regular fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
                     
-                </div>
+                
             </div>
         </div>
     `;
